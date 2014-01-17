@@ -1,5 +1,24 @@
+pid-io-stats-stream
+===================
+
+get a stream of io stats for a running proces. 
+
+depends on procfs which is a linux feature see https://github.com/soldair/node-procfs-stats#hope to contribute ideas for making this work on more systems.
+
+```js
+
+var pidstats = require('pid-io-stats-stream')
+var stream = pidstats(process.pid);
+
+stream.on('data',function(obj){
+  console.log(obj);
+});
+
+```
 
 
+more information on these kernel stats
+--------------------------------------
 
 
 from http://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/tree/Documentation/filesystems/proc.txt?id=HEAD#n1432
