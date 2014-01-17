@@ -1,7 +1,7 @@
 {
   "name": "monitor-pid",
   "description": "",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "repository": {
     "url": "git://github.com/soldair/node-monitor-pid.git"
   },
