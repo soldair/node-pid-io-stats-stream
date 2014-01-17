@@ -3,15 +3,15 @@ var through = require('through');
 var procfs = require('procfs-stats');
 var avg = require('./avg'),undef;
 
-module.exports = function(pid){
+module.exports = function(pid,interval,winSize){
   var ps = procfs(pid);
   // sample disk io
   var s = through();
 
   var store = {};
 
-  var winSize = 10;
-  var interval = 1000;
+  winSize = winSize||10;
+  interval = interval||1000;
   var lastValue;
 
   var stop = intrSample(function(lastValue,cb){

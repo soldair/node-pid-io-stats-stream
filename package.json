@@ -9,9 +9,12 @@
   "scripts": {
     "test": "tap test/*.js"
   },
-  "author":"Ryan Day",
-  "dependencies": {},
+  "author": "Ryan Day",
+  "dependencies": {
+    "through": "~2.3.4",
+    "procfs-stats": "0.0.3"
+  },
   "devDependencies": {
-    "tap": "~0.2.5"
+    "tape": "~2.3.2"
   }
 }
