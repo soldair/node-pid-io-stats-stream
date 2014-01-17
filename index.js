@@ -10,22 +10,22 @@ module.exports = function(pid,interval,winSize){
 
   var store = {};
 
-  winSize = winSize||10;
+  winSize = winSize||1;
   interval = interval||1000;
   var lastValue;
 
   var stop = intrSample(function(lastValue,cb){
     ps.io(function(err,stats){
       if(lastValue) {
-        var o = subtractValues(lastValue);
-        s.write(avgWinValues(store,o,win));      
+        var o = subtractValues(stats,lastValue);
+        s.write(winSize>1?avgWinValues(store,o,winSize):o);      
       }
       cb(false,stats);
     });
   },function(err){
     // stopped.
     if(err) s.emit('error',err);
-  })
+  },interval);
 
   s.on('end',function(){
     stop();
@@ -35,19 +35,20 @@ module.exports = function(pid,interval,winSize){
 }
 
 
-function intrSample(ev,intr,done){
+function intrSample(ev,done,intr){
   var lastValue;
   var stopped = false;
   (function fn(){
+    console.log('sample?')
     if(stopped) return done();
     var t = Date.now();
-    ev(lastValue,function(err,lastValue){
+    ev(lastValue,function(err,_lastValue){
       if(stopped || err) return done(err);
-      
-      var e = Date.now()-e;
+      lastValue = _lastValue;
+      var e = Date.now()-t;
       setTimeout(function(){
         fn();
-      },interval-e);
+      },intr-e);
     });
   }());
 

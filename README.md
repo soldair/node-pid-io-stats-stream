@@ -16,6 +16,13 @@ stream.on('data',function(obj){
 
 ```
 
+pidstats(pid,[interval,[winSize]])
+-------------------------------------------------
+
+- pid - the process id
+- interval - the polling interval in ms - optional defaults to 1000
+- winSize - if a winSize is provided the result will be a windowed average of windowSize samples - optional defaults to off
+
 
 more information on these kernel stats
 --------------------------------------
