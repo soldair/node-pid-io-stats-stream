@@ -1,3 +1,6 @@
+
+[![Build Status](https://secure.travis-ci.org/soldair/node-pid-io-stats-stream.png)](http://travis-ci.org/soldair/node-pid-io-stats-stream)
+
 pid-io-stats-stream
 ===================
 
