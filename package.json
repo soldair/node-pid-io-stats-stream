@@ -1,13 +1,13 @@
 {
-  "name": "monitor-pid",
-  "description": "",
+  "name": "pid-io-stats-stream",
+  "description": "get a stream of io stats for a running proces. linux",
   "version": "0.0.1",
   "repository": {
     "url": "git://github.com/soldair/node-monitor-pid.git"
   },
   "main": "index.js",
   "scripts": {
-    "test": "tap test/*.js"
+    "test": "tape test/*.js"
   },
   "author": "Ryan Day",
   "dependencies": {
@@ -16,5 +16,6 @@
   },
   "devDependencies": {
     "tape": "~2.3.2"
-  }
+  },
+  "keywords":["procfs","stats","io","pid","sys","stream"]
 }
